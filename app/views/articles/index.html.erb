@@ -1,3 +1,5 @@
+<%  require 'kramdown' %>
+
 <div class="container">
   <div class="row text-center">
     <div class="col-md-8 offset-2">
@@ -5,7 +7,7 @@
         <% @articles.each do |article| %>
           <li>
             <h2><%= link_to article.title, article_path(article) %></h2>
-            <%= article.content %>
+            <%= Kramdown::Document.new(article.content).to_html.html_safe %>
           </li>
           <br>
         <% end %>

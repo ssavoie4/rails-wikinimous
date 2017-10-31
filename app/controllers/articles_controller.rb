@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article.create(article_params)
+    @article = Article.create(article_params)
 
     redirect_to article_path(@article)
   end
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
 
-    redirect_to artciles_path
+    redirect_to articles_path
   end
 
   private
